@@ -7,7 +7,7 @@ pub:            "arxiv"
 # pub_post:       'Under review.'
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2025"
-# semantic_scholar_id: 54c4df71d3d988c140904fdf61e211da68c5e662  # use this to retrieve citation count
+semantic_scholar_id: b9c05ac2d0488ea1924714ba6c19a803c4ff099f  # use this to retrieve citation count
 abstract: >-
   We introduce RLinf-VLA, a unified and efficient framework for scalable RL training of VLA models. The system adopts a highly flexible resource allocation design that addresses the challenge of integrating rendering, training, and inference in RL+VLA training.
 

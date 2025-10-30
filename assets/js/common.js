@@ -39,4 +39,41 @@ $(function () {
     $(".lazy").on("load", function () {
         $grid.masonry('layout');
     });
+
+    // Hover large image preview for publication covers (desktop only)
+    var $hoverPreview = $('#image-hover-preview');
+    if ($hoverPreview.length === 0) {
+        $hoverPreview = $('<div id="image-hover-preview" aria-hidden="true"><img alt="preview"></div>');
+        $('body').append($hoverPreview);
+    }
+
+    var previewOffsetX = 16;
+    var previewOffsetY = 16;
+
+    $(document).on('mouseenter', 'img.publication-cover', function (e) {
+        var full = $(this).attr('data-full') || $(this).attr('data-src') || $(this).attr('src');
+        if (!full) return;
+        $hoverPreview.find('img').attr('src', full);
+        $hoverPreview.css({ display: 'block' });
+    });
+
+    $(document).on('mousemove', 'img.publication-cover', function (e) {
+        var vpW = $(window).width();
+        var vpH = $(window).height();
+        var previewW = $hoverPreview.outerWidth();
+        var previewH = $hoverPreview.outerHeight();
+
+        var x = e.clientX + previewOffsetX;
+        var y = e.clientY + previewOffsetY;
+
+        if (x + previewW > vpW - 8) x = e.clientX - previewW - previewOffsetX;
+        if (y + previewH > vpH - 8) y = e.clientY - previewH - previewOffsetY;
+
+        $hoverPreview.css({ left: x + 'px', top: y + 'px' });
+    });
+
+    $(document).on('mouseleave', 'img.publication-cover', function () {
+        $hoverPreview.css({ display: 'none' });
+        $hoverPreview.find('img').attr('src', '');
+    });
 })
