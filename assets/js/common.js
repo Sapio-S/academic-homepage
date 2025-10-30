@@ -77,3 +77,25 @@ $(function () {
         $hoverPreview.find('img').attr('src', '');
     });
 })
+
+// --- GitHub Star Badge auto-fetch ---
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.repo-badge[data-github]').forEach(function(link) {
+    var repo = link.getAttribute('data-github');
+    // 防重复
+    if (link.nextElementSibling && link.nextElementSibling.className && link.nextElementSibling.className.includes('github-star-badge')) return;
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then(response => response.json())
+      .then(data => {
+        if(data.stargazers_count !== undefined) {
+          const badge = document.createElement('span');
+          badge.className = 'github-star-badge';
+          badge.style.marginLeft = '0.3em';
+          badge.style.color = '#f7b924';
+          badge.style.fontSize = '0.98em';
+          badge.textContent = '(GitHub ' + data.stargazers_count + ' ⭐)';
+          link.insertAdjacentElement('afterend', badge);
+        }
+      });
+  });
+});
