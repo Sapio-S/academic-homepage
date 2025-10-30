@@ -30,11 +30,11 @@ short_bio: >-
   <p>
     My research interests lie in the field of reinforcement learning (RL) and its applications in robotics. More specifically, I am exploring the following topics:
     <ul>
-      <li><b>Robotic Control</b>: UAV flight control;</li>
-      <!-- <li><b>Robotic Simulation</b>: OmniDrones, RoboVerse;</li> -->
+      <li><b>Robotic control</b>: UAV flight control;</li>
+      <!-- <li><b>Robotic simulation</b>: OmniDrones, RoboVerse;</li> -->
       <li><b>RL algorithm</b>: reward shaping, curriculum learning;</li>
-      <li><b>RL Infrastructure</b>: RLinf; </li>
-      <li><b>Large Model Post-training</b>: RL for LLM and VLA.</li>
+      <li><b>RL infrastructure</b>: RLinf; </li>
+      <li><b>Large model post-training</b>: RL for LLM and VLA.</li>
     </ul>
   </p>
   <p>
