@@ -43,6 +43,9 @@
                         {% if site.data.profile.cv_link %}
                             <a target="_blank" href="{{ site.data.profile.cv_link | relative_url }}"><i class="fas fa-file-alt"></i> Curriculum Vitae</a> <br/>
                         {% endif %}
+                        {% if site.data.profile.cv_link_cn %}
+                            <a target="_blank" href="{{ site.data.profile.cv_link_cn | relative_url }}"><i class="fas fa-file-alt"></i> 中文简历</a> <br/>
+                        {% endif %}
                     </div>
         
                 </div>
